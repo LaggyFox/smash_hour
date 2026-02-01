@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dqe8cs077ppek"]
+
+[ext_resource type="Script" uid="uid://5ovpt0x17r61" path="res://npcs/puncher.gd" id="1_xs6jl"]
+[ext_resource type="Script" uid="uid://d10v5e0ubp7a3" path="res://collisions/hitbox.gd" id="2_jjvaf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nppho"]
+radius = 36.013885
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jjvaf"]
+radius = 36.345562
+
+[node name="Puncher" type="CharacterBody2D" unique_id=772764984]
+collision_layer = 16
+input_pickable = true
+script = ExtResource("1_xs6jl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1393860994]
+shape = SubResource("CircleShape2D_nppho")
+debug_color = Color(1.2513996e-06, 0.646557, 0.22149989, 0.41960785)
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1767032594]
+visible = false
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("2_jjvaf")
+metadata/_custom_type_script = "uid://d10v5e0ubp7a3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=659953612]
+shape = SubResource("CircleShape2D_jjvaf")

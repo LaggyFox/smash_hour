@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://35sykocgsekf"]
+
+[ext_resource type="Script" uid="uid://b4uv22dwkxcl6" path="res://ui/selection_bar/selection_bar.gd" id="1_qihc7"]
+
+[node name="SelectionBar" type="HBoxContainer" unique_id=945331288]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qihc7")

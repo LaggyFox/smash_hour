@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://vhjpjtotqcbj"]
+
+[ext_resource type="Script" uid="uid://c65ue418eofsq" path="res://player/player.gd" id="1_oul6g"]
+[ext_resource type="PackedScene" uid="uid://dl58ogn05i64s" path="res://mask/terrorist_mask.tscn" id="2_qjkh3"]
+[ext_resource type="PackedScene" uid="uid://dqe8cs077ppek" path="res://npcs/puncher.tscn" id="2_yw30f"]
+[ext_resource type="PackedScene" uid="uid://bjbbo0kx6ojxr" path="res://npcs/car_crasher.tscn" id="3_qjkh3"]
+[ext_resource type="Texture2D" uid="uid://ckcgc6q5vaht" path="res://player/mc sprtie sheet.png" id="4_yw30f"]
+[ext_resource type="PackedScene" uid="uid://c1o3qui1txhtk" path="res://direction_marker.tscn" id="6_g6k8r"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yw30f"]
+radius = 20.0
+height = 50.0
+
+[sub_resource type="Animation" id="Animation_7um8m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -100)]
+}
+
+[sub_resource type="Animation" id="Animation_l2nx6"]
+resource_name = "idle"
+length = 1.8750042
+loop_mode = 1
+step = 0.041666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.625, 0.75, 0.875, 1.4583334, 1.7083334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [3, 1, 0, 2, 0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_a0717"]
+resource_name = "walk"
+length = 0.8666701
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.26666668, 0.3, 0.6666667, 0.7, 0.76666665, 0.8666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 7, 6, 4, 5, 4, 6, 7, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(0, -100), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rkbax"]
+_data = {
+&"RESET": SubResource("Animation_7um8m"),
+&"idle": SubResource("Animation_l2nx6"),
+&"walk": SubResource("Animation_a0717")
+}
+
+[node name="Player" type="CharacterBody2D" unique_id=1087284950]
+z_index = 100
+collision_layer = 2
+script = ExtResource("1_oul6g")
+terrorist_mask_scene = ExtResource("2_qjkh3")
+puncher_scene = ExtResource("2_yw30f")
+car_crasher_scene = ExtResource("3_qjkh3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=678670999]
+position = Vector2(0, 16)
+shape = SubResource("CapsuleShape2D_yw30f")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2089477603]
+position = Vector2(16, 0)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("4_yw30f")
+offset = Vector2(0, -100)
+hframes = 9
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=555775991]
+libraries/ = SubResource("AnimationLibrary_rkbax")
+autoplay = &"idle"
+
+[node name="DirectionMarker" parent="." unique_id=1325651744 instance=ExtResource("6_g6k8r")]
+top_level = true
+z_index = 100

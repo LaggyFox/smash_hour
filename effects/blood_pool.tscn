@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bwtwuthw840t6"]
+
+[ext_resource type="Texture2D" uid="uid://d4em0otc5pm2y" path="res://effects/sprites/blood_pool.png" id="1_uc8r5"]
+
+[node name="BloodPool" type="Sprite2D" unique_id=745684668]
+z_index = -5
+z_as_relative = false
+texture = ExtResource("1_uc8r5")

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="RelativeKnockbackResource" format=3 uid="uid://b7eelhcpxdbuc"]
+
+[ext_resource type="Script" uid="uid://birpcbhtixpwf" path="res://collisions/relative_knockback_resource.gd" id="1_1so73"]
+
+[resource]
+script = ExtResource("1_1so73")
+knockback_speed = 2000.0

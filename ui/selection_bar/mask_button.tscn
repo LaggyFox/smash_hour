@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://c0n07ho276wvu"]
+
+[ext_resource type="Script" uid="uid://8fkf7iugf05e" path="res://ui/selection_bar/mask_button.gd" id="1_aan5o"]
+[ext_resource type="Texture2D" uid="uid://dsyujp5p6gw7f" path="res://mask/car_crasher_mask.png" id="2_h7am4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0y0c7"]
+bg_color = Color(0.31555995, 0.24839999, 0.92, 0.73333335)
+
+[sub_resource type="LabelSettings" id="LabelSettings_aan5o"]
+font_size = 22
+
+[node name="SelectionBox" type="Button" unique_id=2021516841]
+offset_right = 128.0
+offset_bottom = 128.0
+mouse_filter = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_0y0c7")
+script = ExtResource("1_aan5o")
+mask_sprite = ExtResource("2_h7am4")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=804646893]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -56.0
+offset_top = -64.0
+offset_right = 184.0
+offset_bottom = 176.0
+texture = ExtResource("2_h7am4")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="." unique_id=76133580]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 48.0
+offset_top = 96.0
+offset_right = 80.0
+offset_bottom = 127.0
+text = "12"
+label_settings = SubResource("LabelSettings_aan5o")
+horizontal_alignment = 1

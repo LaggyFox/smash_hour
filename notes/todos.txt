@@ -1,0 +1,38 @@
+immediate todos:
+* winnder stage
+* direction marker
+* win/lose condition
+* masks
+* star grades for amount killed
+
+low priority:
+* panic area
+
+* trail of blood that makes enemies slide
+
+* give the player hitpoihnts
+
+* give the hitboxes hitpoints, they also hurt the player and push him the same way
+
+* the car could also push us
+
+time freezes:
+* last person
+* player got hurt
+* player got killed
+* bomber time freeze
+
+* when humans move, paint a line with color 7e0000
+
+* can cars crash with each other
+
+* spread blood on the floor
+
+animation polish
+* reduce the time the player is in the air
+
+* add mask destroyed animation
+
+* add some offset from the player to the thrown mask
+
+* if a different hitbox hits the human, remove the invincibility immediately!

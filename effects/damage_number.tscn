@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://djaddv5r20sqf"]
+
+[ext_resource type="Script" uid="uid://buslsu8co83v" path="res://effects/damage_number.gd" id="2_4jtu2"]
+
+[node name="DamageNumber" type="Node2D" unique_id=861857129]
+physics_interpolation_mode = 2
+script = ExtResource("2_4jtu2")
+
+[node name="Label" type="Label" parent="." unique_id=2050767239]
+offset_left = -64.0
+offset_top = -40.0
+offset_right = 65.0
+offset_bottom = 40.0
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1

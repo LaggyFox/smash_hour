@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dn654vjflrjn6"]
+
+[ext_resource type="Script" uid="uid://beemokxn5ufr4" path="res://mask/mask.gd" id="1_fns7e"]
+[ext_resource type="Script" uid="uid://bs74kgdt0mnri" path="res://sound/sound_resource.gd" id="2_22csn"]
+[ext_resource type="Texture2D" uid="uid://bk8nrxxf4odl" path="res://npcs/sprites/mad max sprite sheet.png" id="2_q0xyr"]
+[ext_resource type="AudioStream" uid="uid://dg7fh0fbgvvjo" path="res://sound/zapsplat/swoosh/zapsplat_foley_stick_small_branch_swoosh_whoosh_air_faster_114407.mp3" id="3_22csn"]
+
+[sub_resource type="Resource" id="Resource_cf6od"]
+script = ExtResource("2_22csn")
+sound_stream = ExtResource("3_22csn")
+metadata/_custom_type_script = "uid://bs74kgdt0mnri"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q0xyr"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6qndv"]
+radius = 17.029387
+
+[node name="CarCrasherMask" type="CharacterBody2D" unique_id=171350886]
+collision_layer = 128
+script = ExtResource("1_fns7e")
+throw_sound = SubResource("Resource_cf6od")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=144352837]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_q0xyr")
+offset = Vector2(110, 0)
+hframes = 7
+frame = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=351399665]
+shape = SubResource("CircleShape2D_q0xyr")
+
+[node name="InfectArea" type="Area2D" parent="." unique_id=289995752]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InfectArea" unique_id=323547051]
+shape = SubResource("CircleShape2D_6qndv")

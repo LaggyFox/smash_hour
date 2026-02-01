@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ScaleResource" format=3 uid="uid://dwtmdcuosvbkt"]
+
+[ext_resource type="Script" uid="uid://4wl354w0miu6" path="res://effects/scale_resource.gd" id="1_8gpo7"]
+
+[resource]
+script = ExtResource("1_8gpo7")
+allow_multiple_scales = false
+duration = 0.3
+amount = Vector2(1.25, 1.25)
+scale_time_ratio = 0.3

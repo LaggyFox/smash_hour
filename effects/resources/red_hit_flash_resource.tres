@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TweenFlashResource" format=3 uid="uid://bdgbs8isy413r"]
+
+[ext_resource type="Gradient" uid="uid://c0j6q7b6or24f" path="res://gradients/red_flash_gradient.tres" id="1_k1jtk"]
+[ext_resource type="Script" uid="uid://cxpjnybcsmcbe" path="res://effects/tween_flash_resource.gd" id="2_rrgs4"]
+
+[resource]
+script = ExtResource("2_rrgs4")
+tween_duration = 0.15
+flash_strength_factor = 2.0
+transition_type = 4
+color_gradient = ExtResource("1_k1jtk")

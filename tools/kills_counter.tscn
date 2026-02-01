@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://crwx5jvj6qsvo"]
+
+[ext_resource type="Script" uid="uid://b25yrk2yc8gne" path="res://tools/kills_counter.gd" id="1_bb7ir"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_srn13"]
+font_size = 32
+
+[node name="KillsCounter" type="PanelContainer" unique_id=1494540842]
+offset_right = 43.0
+offset_bottom = 23.0
+script = ExtResource("1_bb7ir")
+percentage_to_win = 0.6
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1962238302]
+layout_mode = 2
+
+[node name="CountLabel" type="Label" parent="CenterContainer" unique_id=785059302]
+unique_name_in_owner = true
+layout_mode = 2
+text = "10/10"
+label_settings = SubResource("LabelSettings_srn13")
+horizontal_alignment = 1

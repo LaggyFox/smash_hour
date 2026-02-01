@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DamageNumberResource" format=3 uid="uid://cnws7wab2pkr4"]
+
+[ext_resource type="Script" uid="uid://b8tg4w1nxa0lf" path="res://effects/damage_number_resource.gd" id="1_yv81k"]
+
+[sub_resource type="Gradient" id="Gradient_c6aj8"]
+offsets = PackedFloat32Array(0, 0.702521, 0.8504202)
+colors = PackedColorArray(0.6156863, 0.9019608, 0.30588236, 1, 0.585339, 0.90448976, 0.3918664, 1, 0.42745098, 0.91764706, 0.8392157, 1)
+
+[resource]
+script = ExtResource("1_yv81k")
+color_gradient = SubResource("Gradient_c6aj8")
+color_transition_type = 11
+max_scale = 1.3
+metadata/_custom_type_script = "uid://c8862fr8fehjg"

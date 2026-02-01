@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://o0hntph8bx1c"]
+
+[ext_resource type="Texture2D" uid="uid://dvtfky1djulr" path="res://levels/scenery/shelf from the side.png" id="1_88w3v"]
+
+[node name="StallSide" type="Sprite2D" unique_id=165108579]
+z_index = -1
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_88w3v")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1282017055]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=148236807]
+position = Vector2(-439.99997, 659.9993)
+polygon = PackedVector2Array(1406.6667, 53.333008, 1404.8594, -46.067932, 1399.9998, -313.3335, 1053.3333, -660, -166.66675, -646.667, -520, -313.3335, -526.66675, 46.666504)

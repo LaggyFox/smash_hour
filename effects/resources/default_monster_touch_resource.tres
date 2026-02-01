@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="MultiSoundResource" format=3 uid="uid://cy72elf70cf4i"]
+
+[ext_resource type="Script" uid="uid://bb4bpd1qqq1v0" path="res://sound/multi_sound_resource.gd" id="1_x3ob2"]
+[ext_resource type="Script" uid="uid://bs74kgdt0mnri" path="res://sound/sound_resource.gd" id="2_mvoy6"]
+
+[sub_resource type="Resource" id="Resource_owvok"]
+metadata/__load_path__ = "res://sound/pixel_bay/8-bit-game-sfx-sound-6-269965.mp3"
+
+[sub_resource type="Resource" id="Resource_6nv6f"]
+script = ExtResource("2_mvoy6")
+sound_stream = SubResource("Resource_owvok")
+metadata/_custom_type_script = "uid://bi4dcmlr185iy"
+
+[resource]
+script = ExtResource("1_x3ob2")
+sounds = Array[ExtResource("2_mvoy6")]([SubResource("Resource_6nv6f")])
+metadata/_custom_type_script = "uid://dr1glbh3ue5wb"

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dpyqvjhvi635c"]
+
+[ext_resource type="Texture2D" uid="uid://cid16ejctgl0d" path="res://levels/scenery/shelf.png" id="1_xfbye"]
+
+[node name="stall" type="Sprite2D" unique_id=2000242760]
+z_index = -1
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_xfbye")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2122650856]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=2015830570]
+position = Vector2(-439.99997, 659.9993)
+polygon = PackedVector2Array(873.3335, -6.666992, 873.3335, -1040, 440, -1426.667, 0, -1046.6665, 6.666504, -6.666504)

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bjwti2j6uj5wn"]
+
+[ext_resource type="PackedScene" uid="uid://80g4nu45rtoa" path="res://mask/mask_selector.tscn" id="1_xmm75"]
+[ext_resource type="PackedScene" uid="uid://crwx5jvj6qsvo" path="res://tools/kills_counter.tscn" id="2_qesnl"]
+[ext_resource type="PackedScene" uid="uid://benwh6s0lfe25" path="res://tools/win_indicator.tscn" id="3_hxwew"]
+
+[node name="UI" type="CanvasLayer" unique_id=571641616]
+
+[node name="MaskSelector" parent="." unique_id=1636779681 instance=ExtResource("1_xmm75")]
+offset_left = 1520.0
+offset_top = 896.0
+offset_right = -21.0
+offset_bottom = -60.0
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1169150826]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 95.0
+grow_horizontal = 2
+
+[node name="KillsCounter" parent="CenterContainer" unique_id=1494540842 instance=ExtResource("2_qesnl")]
+layout_mode = 2
+
+[node name="CenterContainer2" type="CenterContainer" parent="." unique_id=1003534673]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="KillsCounter" parent="CenterContainer2" unique_id=46090133 instance=ExtResource("3_hxwew")]
+layout_mode = 2

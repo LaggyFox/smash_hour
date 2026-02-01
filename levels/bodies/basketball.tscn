@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cnpuqxb22d58d"]
+
+[ext_resource type="Texture2D" uid="uid://dhp1mrrya6egc" path="res://levels/bodies/basketball.png" id="1_i7sl6"]
+[ext_resource type="Script" path="res://levels/bodies/basketball.gd" id="1_n42dp"]
+[ext_resource type="AudioStream" uid="uid://cwt7cnyagjmul" path="res://levels/bodies/Ball.wav" id="3_aees2"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nn0v1"]
+friction = 0.2
+rough = true
+bounce = 0.85
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nn0v1"]
+radius = 25.298222
+
+[node name="Basketball" type="RigidBody2D" unique_id=829101968]
+collision_layer = 64
+collision_mask = 199
+physics_material_override = SubResource("PhysicsMaterial_nn0v1")
+gravity_scale = 0.0
+continuous_cd = 1
+contact_monitor = true
+max_contacts_reported = 1
+linear_damp = 2.0
+angular_damp = 1.0
+script = ExtResource("1_n42dp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1667415931]
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CircleShape2D_nn0v1")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=116246580]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_i7sl6")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1528979014]
+stream = ExtResource("3_aees2")

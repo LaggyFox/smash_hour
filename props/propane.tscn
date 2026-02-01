@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bf03ka64yoxqc"]
+
+[ext_resource type="Script" uid="uid://b3ymahds1mh5" path="res://props/propane.gd" id="1_mndfv"]
+[ext_resource type="Texture2D" uid="uid://cn6nbmtq11xm7" path="res://props/propane.png" id="1_wjqfn"]
+[ext_resource type="Script" uid="uid://cqu7tkydqiqod" path="res://collisions/hurtbox.gd" id="3_oix3r"]
+[ext_resource type="Script" uid="uid://b1ihptnghuf01" path="res://npcs/explosion_handler.gd" id="5_asxcv"]
+[ext_resource type="Resource" uid="uid://d50y88a6pgtq" path="res://camera/shakes/default_camera_shake_resource.tres" id="5_mndfv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mndfv"]
+radius = 56.0
+height = 128.0
+
+[node name="Propane" type="Node2D" unique_id=699370682]
+script = ExtResource("1_mndfv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1739875581]
+position = Vector2(-1.5258789e-05, -7.9999847)
+scale = Vector2(0.22851563, 0.22851563)
+texture = ExtResource("1_wjqfn")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=875076386]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("3_oix3r")
+metadata/_custom_type_script = "uid://cqu7tkydqiqod"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=622747551]
+shape = SubResource("CapsuleShape2D_mndfv")
+
+[node name="ExplosionHandler" type="Node" parent="." unique_id=804880578]
+script = ExtResource("5_asxcv")
+camera_shake_resource = ExtResource("5_mndfv")
+metadata/_custom_type_script = "uid://b1ihptnghuf01"

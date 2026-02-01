@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://ci0ug8u86d7v4"]
+
+[ext_resource type="PackedScene" uid="uid://35sykocgsekf" path="res://ui/selection_bar/selection_bar.tscn" id="1_mm06q"]
+[ext_resource type="Theme" uid="uid://buvxeomok60k5" path="res://ui/new_theme.tres" id="1_ue2kl"]
+
+[node name="UserInterface" type="Control" unique_id=583274567]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DownPannel" type="Panel" parent="." unique_id=471349028]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 1.0
+anchor_right = 0.7
+anchor_bottom = 1.0
+offset_top = -200.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_ue2kl")
+
+[node name="SelectionBar" parent="DownPannel" unique_id=417972228 instance=ExtResource("1_mm06q")]
+self_modulate = Color(1, 1, 1, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -294.0
+offset_top = -72.0
+offset_right = 294.0
+offset_bottom = 72.0
+theme = ExtResource("1_ue2kl")

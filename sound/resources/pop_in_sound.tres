@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SoundResource" format=3 uid="uid://d3idy5syj3d2s"]
+
+[ext_resource type="Script" uid="uid://bs74kgdt0mnri" path="res://sound/sound_resource.gd" id="1_8xblw"]
+[ext_resource type="AudioStream" uid="uid://ds0nmuebomjc2" path="res://sound/zapsplat/pop/zapsplat_cartoon_pop_001_46047.wav" id="2_tdm2r"]
+
+[resource]
+script = ExtResource("1_8xblw")
+sound_stream = ExtResource("2_tdm2r")
+metadata/_custom_type_script = "uid://bi4dcmlr185iy"

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bgbjrh0lv44j2"]
+
+[ext_resource type="Script" uid="uid://brfkduurlxxvq" path="res://mask/mask_collectible.gd" id="1_7co2j"]
+[ext_resource type="Texture2D" uid="uid://c25gnkqhh7mal" path="res://mask/daft_punk_mask.png" id="2_7co2j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0fexn"]
+radius = 32.0
+
+[node name="DaftPunkMaskCollectible" type="Area2D" unique_id=92336418]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_7co2j")
+mask_type = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=317129462]
+position = Vector2(6, 0)
+scale = Vector2(0.17111112, 0.17111112)
+texture = ExtResource("2_7co2j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=612734872]
+shape = SubResource("CircleShape2D_0fexn")

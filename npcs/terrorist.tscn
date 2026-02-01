@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://ponmar6pht88"]
+
+[ext_resource type="Script" uid="uid://dfgjqoeuam2fs" path="res://npcs/terrorist.gd" id="1_a0a0e"]
+[ext_resource type="Texture2D" uid="uid://yrkrip8yf364" path="res://npcs/terrorist.png" id="2_c60dj"]
+[ext_resource type="Script" uid="uid://b1ihptnghuf01" path="res://npcs/explosion_handler.gd" id="3_juemp"]
+[ext_resource type="AudioStream" uid="uid://30esn76q3cop" path="res://sound/terrorist_scream.mp3" id="3_tvkhh"]
+[ext_resource type="Script" uid="uid://c2a2e5v8j1ypj" path="res://effects/camera_shake_resource.gd" id="4_fohdw"]
+[ext_resource type="Script" uid="uid://dyntbhryli3gv" path="res://effects/shake_resource.gd" id="5_6dsvu"]
+[ext_resource type="Script" uid="uid://bxk0d161sg4gn" path="res://effects/time_freeze_resource.gd" id="6_85kb6"]
+[ext_resource type="Script" uid="uid://bs74kgdt0mnri" path="res://sound/sound_resource.gd" id="11_j2one"]
+
+[sub_resource type="Resource" id="Resource_2ego8"]
+script = ExtResource("11_j2one")
+sound_stream = ExtResource("3_tvkhh")
+volume_db = -6.0
+min_pitch = 0.75
+max_pitch = 1.2
+seek = 3.0
+metadata/_custom_type_script = "uid://bs74kgdt0mnri"
+
+[sub_resource type="Resource" id="Resource_vqd2d"]
+script = ExtResource("5_6dsvu")
+duration = 0.5
+amount = Vector2(45, 30)
+transition_type = 4
+metadata/_custom_type_script = "uid://dyntbhryli3gv"
+
+[sub_resource type="Resource" id="Resource_m621q"]
+script = ExtResource("6_85kb6")
+duration = 0.3
+time_scale = 0.25
+metadata/_custom_type_script = "uid://bxk0d161sg4gn"
+
+[sub_resource type="Resource" id="Resource_akmjh"]
+script = ExtResource("4_fohdw")
+shake_resource = SubResource("Resource_vqd2d")
+time_freeze_resource = SubResource("Resource_m621q")
+metadata/_custom_type_script = "uid://c2a2e5v8j1ypj"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5eaa1"]
+size = Vector2(40, 75)
+
+[sub_resource type="Animation" id="Animation_7um8m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -100)]
+}
+
+[sub_resource type="Animation" id="Animation_a0717"]
+resource_name = "walk"
+length = 0.8666701
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.26666668, 0.3, 0.6666667, 0.7, 0.76666665, 0.8666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 7, 6, 4, 5, 4, 6, 7, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(0, -100), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7um8m"]
+_data = {
+&"RESET": SubResource("Animation_7um8m"),
+&"walk": SubResource("Animation_a0717")
+}
+
+[node name="Terrorist" type="CharacterBody2D" unique_id=772764984 node_paths=PackedStringArray("exploder")]
+z_index = 90
+collision_layer = 4
+input_pickable = true
+motion_mode = 1
+script = ExtResource("1_a0a0e")
+spawn_sound = SubResource("Resource_2ego8")
+speed = 400.0
+time_to_explode = 0.5
+exploder = NodePath("ExplosionHandler")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=452484456]
+position = Vector2(16, 0)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_c60dj")
+offset = Vector2(0, -100)
+hframes = 9
+
+[node name="ExplosionHandler" type="Node" parent="." unique_id=1595817129]
+script = ExtResource("3_juemp")
+camera_shake_resource = SubResource("Resource_akmjh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1393860994]
+position = Vector2(-4, 2.5)
+shape = SubResource("RectangleShape2D_5eaa1")
+debug_color = Color(0.6034392, 0.542392, 0, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1887895761]
+libraries/ = SubResource("AnimationLibrary_7um8m")
+autoplay = &"walk"

@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://dlyxiujqsweq8"]
+
+[ext_resource type="Texture2D" uid="uid://dl4f6knv1yett" path="res://levels/bodies/cart.png" id="1_r07wb"]
+[ext_resource type="Script" path="res://levels/bodies/cart.gd" id="1_uybg1"]
+[ext_resource type="AudioStream" uid="uid://d0uy7dnrategb" path="res://levels/bodies/grocery-cart-442322.mp3" id="2_f4ixj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4mar"]
+size = Vector2(61, 8.000004)
+
+[node name="Cart" type="PinJoint2D" unique_id=138425000]
+z_index = 50
+scale = Vector2(0.99999994, 0.99999994)
+node_a = NodePath("FrameBody")
+node_b = NodePath("Wheels")
+bias = 0.9
+script = ExtResource("1_uybg1")
+frame_sfx = ExtResource("2_f4ixj")
+wheel_sfx = ExtResource("2_f4ixj")
+max_vol_speed = 100.0
+max_distance = 1500.0
+voice_limit = 3
+
+[node name="FrameBody" type="RigidBody2D" parent="." unique_id=1820860866]
+collision_layer = 64
+collision_mask = 199
+mass = 30.0
+gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 0.5
+angular_damp = 2.0
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="FrameBody" unique_id=1801875550]
+position = Vector2(-40, 40)
+scale = Vector2(0.9999993, 0.9999993)
+polygon = PackedVector2Array(7.0000916, -26, 66.00009, -27, 79.00015, -65.00003, -5.999939, -63.00003)
+
+[node name="Cart" type="Sprite2D" parent="FrameBody" unique_id=56416726]
+scale = Vector2(0.099999994, 0.099999994)
+texture = ExtResource("1_r07wb")
+
+[node name="Wheels" type="RigidBody2D" parent="." unique_id=1232969324]
+collision_layer = 64
+mass = 5.0
+gravity_scale = 0.0
+center_of_mass_mode = 1
+center_of_mass = Vector2(50, 0)
+lock_rotation = true
+linear_damp = 6.0
+angular_damp = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheels" unique_id=1719591947]
+position = Vector2(-1.499939, 29.00003)
+scale = Vector2(0.9999997, 0.9999997)
+shape = SubResource("RectangleShape2D_j4mar")

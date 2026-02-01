@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dan24kpvfl05g"]
+
+[ext_resource type="Script" uid="uid://beemokxn5ufr4" path="res://mask/mask.gd" id="1_hhjj8"]
+[ext_resource type="PackedScene" uid="uid://cj3fc51yg1f8o" path="res://npcs/daft_punk.tscn" id="2_hhjj8"]
+[ext_resource type="Script" uid="uid://bs74kgdt0mnri" path="res://sound/sound_resource.gd" id="3_7crmw"]
+[ext_resource type="AudioStream" uid="uid://dg7fh0fbgvvjo" path="res://sound/zapsplat/swoosh/zapsplat_foley_stick_small_branch_swoosh_whoosh_air_faster_114407.mp3" id="4_etd1j"]
+[ext_resource type="Texture2D" uid="uid://c25gnkqhh7mal" path="res://mask/daft_punk_mask.png" id="5_hhjj8"]
+
+[sub_resource type="Resource" id="Resource_cf6od"]
+script = ExtResource("3_7crmw")
+sound_stream = ExtResource("4_etd1j")
+metadata/_custom_type_script = "uid://bs74kgdt0mnri"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q0xyr"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6qndv"]
+radius = 17.029387
+
+[node name="DaftPunkMask" type="CharacterBody2D" unique_id=171350886]
+collision_layer = 128
+script = ExtResource("1_hhjj8")
+infected_scene = ExtResource("2_hhjj8")
+throw_sound = SubResource("Resource_cf6od")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=144352837]
+position = Vector2(3, 1)
+scale = Vector2(0.10740741, 0.10740741)
+texture = ExtResource("5_hhjj8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=351399665]
+shape = SubResource("CircleShape2D_q0xyr")
+
+[node name="InfectArea" type="Area2D" parent="." unique_id=289995752]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InfectArea" unique_id=323547051]
+shape = SubResource("CircleShape2D_6qndv")

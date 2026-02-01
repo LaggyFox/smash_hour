@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cu2gsewlvdrmi"]
+
+[ext_resource type="Texture2D" uid="uid://deigra8blf10h" path="res://levels/scenery/Concrete slab.png" id="1_rubqk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pdw5x"]
+size = Vector2(108, 96)
+
+[node name="Wall" type="StaticBody2D" unique_id=1065562019]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=698062405]
+shape = SubResource("RectangleShape2D_pdw5x")
+
+[node name="Texture" type="TextureRect" parent="." unique_id=316776900]
+z_index = -4
+offset_left = -56.0
+offset_top = -48.0
+offset_right = 664.0
+offset_bottom = 672.0
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_rubqk")
+stretch_mode = 1

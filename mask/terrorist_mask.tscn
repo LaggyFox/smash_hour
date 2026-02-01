@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dl58ogn05i64s"]
+
+[ext_resource type="Script" uid="uid://beemokxn5ufr4" path="res://mask/mask.gd" id="1_naqvt"]
+[ext_resource type="PackedScene" uid="uid://ponmar6pht88" path="res://npcs/terrorist.tscn" id="2_24h8f"]
+[ext_resource type="Script" uid="uid://bs74kgdt0mnri" path="res://sound/sound_resource.gd" id="2_ljofg"]
+[ext_resource type="AudioStream" uid="uid://dg7fh0fbgvvjo" path="res://sound/zapsplat/swoosh/zapsplat_foley_stick_small_branch_swoosh_whoosh_air_faster_114407.mp3" id="3_24h8f"]
+[ext_resource type="Texture2D" uid="uid://b6aig1io7btj0" path="res://mask/terrorist_mask.png" id="4_naqvt"]
+
+[sub_resource type="Resource" id="Resource_cf6od"]
+script = ExtResource("2_ljofg")
+sound_stream = ExtResource("3_24h8f")
+metadata/_custom_type_script = "uid://bs74kgdt0mnri"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q0xyr"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6qndv"]
+radius = 17.029387
+
+[node name="TerroristMask" type="CharacterBody2D" unique_id=171350886]
+collision_layer = 128
+script = ExtResource("1_naqvt")
+infected_scene = ExtResource("2_24h8f")
+throw_sound = SubResource("Resource_cf6od")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=144352837]
+position = Vector2(1, 0)
+scale = Vector2(0.10740741, 0.10740741)
+texture = ExtResource("4_naqvt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=351399665]
+shape = SubResource("CircleShape2D_q0xyr")
+
+[node name="InfectArea" type="Area2D" parent="." unique_id=289995752]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InfectArea" unique_id=323547051]
+shape = SubResource("CircleShape2D_6qndv")

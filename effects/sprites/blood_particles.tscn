@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://d01nrk4gvat5p"]
+
+[ext_resource type="Script" uid="uid://0uo7xfr5q0g4" path="res://effects/sprites/blood_particles.gd" id="1_i0erj"]
+[ext_resource type="Texture2D" uid="uid://b2kcnpt1svvnq" path="res://effects/sprites/blood.png" id="1_ss0hd"]
+
+[sub_resource type="Animation" id="Animation_ss0hd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i0erj"]
+resource_name = "splatter"
+length = 0.50000334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bixe3"]
+_data = {
+&"RESET": SubResource("Animation_ss0hd"),
+&"splatter": SubResource("Animation_i0erj")
+}
+
+[node name="BloodParticles" type="Node2D" unique_id=1130232943]
+script = ExtResource("1_i0erj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1678806486]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(160, -40)
+scale = Vector2(0.39629632, 0.3962963)
+texture = ExtResource("1_ss0hd")
+hframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1030849464]
+root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_bixe3")

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CameraShakeResource" format=3 uid="uid://d50y88a6pgtq"]
+
+[ext_resource type="Script" uid="uid://c2a2e5v8j1ypj" path="res://effects/camera_shake_resource.gd" id="1_0e0sd"]
+[ext_resource type="Script" uid="uid://dyntbhryli3gv" path="res://effects/shake_resource.gd" id="2_k0mfq"]
+[ext_resource type="Script" uid="uid://bxk0d161sg4gn" path="res://effects/time_freeze_resource.gd" id="3_k0mfq"]
+
+[sub_resource type="Resource" id="Resource_ow5gw"]
+script = ExtResource("2_k0mfq")
+amount = Vector2(8, 8)
+ease_type = 3
+
+[sub_resource type="Resource" id="Resource_qd75k"]
+script = ExtResource("3_k0mfq")
+duration = 0.15
+metadata/_custom_type_script = "uid://bxk0d161sg4gn"
+
+[resource]
+script = ExtResource("1_0e0sd")
+shake_resource = SubResource("Resource_ow5gw")
+time_freeze_resource = SubResource("Resource_qd75k")

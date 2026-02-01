@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SoundResource" format=3 uid="uid://bsvjy5tfivja8"]
+
+[ext_resource type="Script" uid="uid://bs74kgdt0mnri" path="res://sound/sound_resource.gd" id="1_j6msp"]
+[ext_resource type="AudioStream" uid="uid://cugukjk83um8k" path="res://sound/optimizer_ai/hit_enemy.wav" id="2_j6msp"]
+
+[resource]
+script = ExtResource("1_j6msp")
+sound_stream = ExtResource("2_j6msp")
+min_pitch = 1.5
+max_pitch = 3.0
+max_distance = 2000.0
+metadata/_custom_type_script = "uid://bs74kgdt0mnri"

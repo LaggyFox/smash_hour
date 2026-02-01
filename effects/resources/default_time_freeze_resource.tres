@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="TimeFreezeResource" format=3 uid="uid://ewm3ykfb2fk8"]
+
+[ext_resource type="Script" uid="uid://bxk0d161sg4gn" path="res://effects/time_freeze_resource.gd" id="1_1rwa7"]
+
+[resource]
+script = ExtResource("1_1rwa7")
+duration = 0.15
+metadata/_custom_type_script = "uid://bxk0d161sg4gn"

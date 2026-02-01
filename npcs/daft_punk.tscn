@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://cj3fc51yg1f8o"]
+
+[ext_resource type="Script" uid="uid://d1i8fo4gk0qrh" path="res://npcs/daft_punk.gd" id="1_dtbsv"]
+[ext_resource type="AudioStream" uid="uid://5vtvk45dq1ac" path="res://music/Rock_Loop Fast_FIX.wav" id="3_nclae"]
+[ext_resource type="Texture2D" uid="uid://cv7yw7xrg05vd" path="res://npcs/daft_punk.png" id="4_qb033"]
+
+[sub_resource type="Animation" id="Animation_7um8m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -100)]
+}
+
+[sub_resource type="Animation" id="Animation_qb033"]
+resource_name = "idle"
+length = 1.5000035
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.59999996, 0.7, 1.2, 1.3, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_a0717"]
+resource_name = "walk"
+length = 0.8666701
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.26666668, 0.3, 0.6666667, 0.7, 0.76666665, 0.8666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 7, 6, 4, 5, 4, 6, 7, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(0, -100), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7um8m"]
+_data = {
+&"RESET": SubResource("Animation_7um8m"),
+&"idle": SubResource("Animation_qb033"),
+&"walk": SubResource("Animation_a0717")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dtbsv"]
+radius = 570.0079
+
+[node name="DaftPunk" type="Node2D" unique_id=770043032]
+z_index = 90
+script = ExtResource("1_dtbsv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=452484456]
+position = Vector2(16, 0)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("4_qb033")
+offset = Vector2(0, -100)
+hframes = 9
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1887895761]
+libraries/ = SubResource("AnimationLibrary_7um8m")
+autoplay = &"idle"
+speed_scale = 4.0
+
+[node name="AttractArea" type="Area2D" parent="." unique_id=474619560]
+collision_layer = 512
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttractArea" unique_id=1169321254]
+shape = SubResource("CircleShape2D_dtbsv")
+debug_color = Color(0.33833352, 0, 0.7, 0.41960785)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=367606648]
+stream = ExtResource("3_nclae")
+volume_db = 5.0
+autoplay = true
+panning_strength = 1.5
+bus = &"Music"
+area_mask = 513

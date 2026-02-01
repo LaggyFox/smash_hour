@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SoundResource" format=3 uid="uid://fcdsk2n7ag5a"]
+
+[ext_resource type="Script" uid="uid://bs74kgdt0mnri" path="res://sound/sound_resource.gd" id="1_lggqt"]
+[ext_resource type="AudioStream" uid="uid://bdktpi4pbv3wi" path="res://sound/zapsplat/attack/zapsplat_foley_throw_object_spin_whoosh_air_002_28133.mp3" id="2_h0ose"]
+
+[resource]
+script = ExtResource("1_lggqt")
+sound_stream = ExtResource("2_h0ose")
+min_pitch = 0.9
+is_2d = true
+metadata/_custom_type_script = "uid://bi4dcmlr185iy"

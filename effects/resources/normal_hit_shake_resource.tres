@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ShakeResource" format=3 uid="uid://c73i2wb0qi2ob"]
+
+[ext_resource type="Script" uid="uid://dyntbhryli3gv" path="res://effects/shake_resource.gd" id="1_fuliq"]
+
+[resource]
+script = ExtResource("1_fuliq")
+duration = 0.3
+amount = Vector2(10, 10)

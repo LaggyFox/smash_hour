@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bp61k0kui4u8m"]
+
+[ext_resource type="Script" path="res://levels/bodies/cardboard_box.gd" id="1_aadu3"]
+[ext_resource type="Texture2D" uid="uid://css2sxb33u1vi" path="res://levels/bodies/box.png" id="1_ursr6"]
+[ext_resource type="AudioStream" uid="uid://bvm2kahkho46r" path="res://npcs/- Cardboard.wav" id="2_t5sfc"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nu2w0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0bnej"]
+size = Vector2(64, 48)
+
+[node name="CardboardBox" type="RigidBody2D" unique_id=602226395]
+collision_layer = 64
+collision_mask = 199
+physics_material_override = SubResource("PhysicsMaterial_nu2w0")
+gravity_scale = 0.0
+inertia = 2000.0
+linear_damp = 8.0
+angular_damp = 10.0
+script = ExtResource("1_aadu3")
+box_sfx = ExtResource("2_t5sfc")
+max_vol_speed = 80.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=622151575]
+shape = SubResource("RectangleShape2D_0bnej")
+
+[node name="Box" type="Sprite2D" parent="." unique_id=1577091406]
+z_index = -1
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_ursr6")

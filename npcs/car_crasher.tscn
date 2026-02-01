@@ -1,0 +1,222 @@
+[gd_scene format=3 uid="uid://bjbbo0kx6ojxr"]
+
+[ext_resource type="Script" uid="uid://bwj6476x6qn33" path="res://npcs/car_crasher.gd" id="1_eo35d"]
+[ext_resource type="Texture2D" uid="uid://bk8nrxxf4odl" path="res://npcs/sprites/mad max sprite sheet.png" id="2_bphkq"]
+[ext_resource type="Script" uid="uid://b1ihptnghuf01" path="res://npcs/explosion_handler.gd" id="3_ow5gw"]
+[ext_resource type="Script" uid="uid://d10v5e0ubp7a3" path="res://collisions/hitbox.gd" id="3_rwokc"]
+[ext_resource type="Script" uid="uid://c2a2e5v8j1ypj" path="res://effects/camera_shake_resource.gd" id="4_qd75k"]
+[ext_resource type="Script" uid="uid://dyntbhryli3gv" path="res://effects/shake_resource.gd" id="4_u4k1a"]
+[ext_resource type="Script" uid="uid://bxk0d161sg4gn" path="res://effects/time_freeze_resource.gd" id="6_mfrve"]
+[ext_resource type="Script" uid="uid://birpcbhtixpwf" path="res://collisions/relative_knockback_resource.gd" id="8_ow5gw"]
+[ext_resource type="Gradient" uid="uid://c0j6q7b6or24f" path="res://gradients/red_flash_gradient.tres" id="9_qd75k"]
+[ext_resource type="Script" uid="uid://cxpjnybcsmcbe" path="res://effects/tween_flash_resource.gd" id="10_mfrve"]
+[ext_resource type="Script" uid="uid://bs74kgdt0mnri" path="res://sound/sound_resource.gd" id="11_mfrve"]
+[ext_resource type="AudioStream" uid="uid://0ngevpnsk35w" path="res://npcs/splash sfx.wav" id="12_mfrve"]
+[ext_resource type="AudioStream" uid="uid://j1iq50qwjuf8" path="res://npcs/- Engine Loop.wav" id="13_djgsa"]
+
+[sub_resource type="Resource" id="Resource_vqd2d"]
+script = ExtResource("4_u4k1a")
+duration = 0.5
+amount = Vector2(20, 20)
+metadata/_custom_type_script = "uid://dyntbhryli3gv"
+
+[sub_resource type="Resource" id="Resource_m621q"]
+script = ExtResource("6_mfrve")
+duration = 0.3
+time_scale = 0.25
+metadata/_custom_type_script = "uid://bxk0d161sg4gn"
+
+[sub_resource type="Resource" id="Resource_akmjh"]
+script = ExtResource("4_qd75k")
+shake_resource = SubResource("Resource_vqd2d")
+time_freeze_resource = SubResource("Resource_m621q")
+metadata/_custom_type_script = "uid://c2a2e5v8j1ypj"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5eaa1"]
+size = Vector2(165, 88)
+
+[sub_resource type="Animation" id="Animation_7um8m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -100)]
+}
+
+[sub_resource type="Animation" id="Animation_l2nx6"]
+resource_name = "idle"
+length = 1.8750042
+loop_mode = 1
+step = 0.041666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6666667, 0.7916667, 0.9166667, 1.5833334, 1.7083334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666669, 0.25, 0.33333337, 0.41666675, 0.5000001, 0.5833334, 0.6666667, 0.75000006, 0.83333343, 0.9166667, 1.0559549, 1.1392883, 1.2226217, 1.3059549, 1.3892883, 1.4726217, 1.555955, 1.6392883, 1.7226217, 1.8059549, 1.8892884, 1.9726217),
+"transitions": PackedFloat32Array(-2.5, -2.5, -2.5, -2.5, -2.5, -2.5, -2.5, -2.5, -2.5, -2.5, -2.5, -2.5, -2.5, -2.5, -2.5, -2.5, -2.5, -2.5, -2.5, -2.5, -2.5, -2.5, -2.5, -2.5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 10), Vector2(0, 0), Vector2(0, 10), Vector2(0, 0), Vector2(0, 10), Vector2(0, 0), Vector2(0, 10), Vector2(0, 0), Vector2(0, 10), Vector2(0, 0), Vector2(0, 10), Vector2(0, 0), Vector2(0, 10), Vector2(0, 0), Vector2(0, 10), Vector2(0, 0), Vector2(0, 10), Vector2(0, 0), Vector2(0, 10), Vector2(0, 0), Vector2(0, 10), Vector2(0, 0), Vector2(0, 10)]
+}
+
+[sub_resource type="Animation" id="Animation_a0717"]
+resource_name = "walk"
+length = 0.8666701
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.26666668, 0.3, 0.6666667, 0.7, 0.76666665, 0.8666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 7, 6, 4, 5, 4, 6, 7, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(0, -100), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7um8m"]
+_data = {
+&"RESET": SubResource("Animation_7um8m"),
+&"idle": SubResource("Animation_l2nx6"),
+&"walk": SubResource("Animation_a0717")
+}
+
+[sub_resource type="Resource" id="Resource_djgsa"]
+script = ExtResource("8_ow5gw")
+knockback_speed = 2000.0
+
+[sub_resource type="Resource" id="Resource_5rxsc"]
+script = ExtResource("10_mfrve")
+tween_duration = 0.15
+flash_strength_factor = 2.0
+transition_type = 4
+color_gradient = ExtResource("9_qd75k")
+
+[sub_resource type="Resource" id="Resource_crb7c"]
+script = ExtResource("4_u4k1a")
+duration = 0.3
+amount = Vector2(10, 10)
+
+[sub_resource type="Resource" id="Resource_ow5gw"]
+script = ExtResource("4_u4k1a")
+amount = Vector2(8, 8)
+ease_type = 3
+
+[sub_resource type="Resource" id="Resource_qd75k"]
+script = ExtResource("6_mfrve")
+duration = 0.2
+time_scale = 0.5
+metadata/_custom_type_script = "uid://bxk0d161sg4gn"
+
+[sub_resource type="Resource" id="Resource_mfrve"]
+script = ExtResource("4_qd75k")
+shake_resource = SubResource("Resource_ow5gw")
+time_freeze_resource = SubResource("Resource_qd75k")
+
+[sub_resource type="Resource" id="Resource_hni2h"]
+script = ExtResource("11_mfrve")
+sound_stream = ExtResource("12_mfrve")
+min_pitch = 0.2
+max_pitch = 1.75
+is_2d = true
+max_distance = 2000.0
+metadata/_custom_type_script = "uid://bs74kgdt0mnri"
+
+[node name="CarCrasher" type="CharacterBody2D" unique_id=772764984 node_paths=PackedStringArray("exploder")]
+z_index = 90
+collision_layer = 4
+input_pickable = true
+script = ExtResource("1_eo35d")
+speed = 6000.0
+acceleration = 1800.0
+friction = 6000.0
+victim_speed = 1500.0
+exploder = NodePath("ExplosionHandler")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=452484456]
+position = Vector2(16, 0)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_bphkq")
+offset = Vector2(0, -100)
+hframes = 7
+
+[node name="ExplosionHandler" type="Node" parent="." unique_id=1595817129]
+script = ExtResource("3_ow5gw")
+camera_shake_resource = SubResource("Resource_akmjh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1393860994]
+position = Vector2(-43.5, 9)
+shape = SubResource("RectangleShape2D_5eaa1")
+debug_color = Color(0.6034392, 0.542392, 0, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1887895761]
+libraries/ = SubResource("AnimationLibrary_7um8m")
+autoplay = &"idle"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=428581615]
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("3_rwokc")
+damage = 2
+knockback_resource = SubResource("Resource_djgsa")
+flash_resource = SubResource("Resource_5rxsc")
+shake_resource = SubResource("Resource_crb7c")
+camera_shake_resource = SubResource("Resource_mfrve")
+hit_sound = SubResource("Resource_hni2h")
+metadata/_custom_type_script = "uid://d10v5e0ubp7a3"
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hitbox" unique_id=715688564]
+position = Vector2(38.5, 8.5)
+polygon = PackedVector2Array(-0.5, 0.5, -4.5, -40.5, 70.5, 45.5, 2.5, 43.5)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1008708315]
+stream = ExtResource("13_djgsa")
+autoplay = true
+bus = &"engine "

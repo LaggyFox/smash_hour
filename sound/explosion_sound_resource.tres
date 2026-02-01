@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SoundResource" format=3 uid="uid://wo8or7ovwxiq"]
+
+[ext_resource type="Script" uid="uid://bs74kgdt0mnri" path="res://sound/sound_resource.gd" id="1_ev6r4"]
+[ext_resource type="AudioStream" uid="uid://d335b28rvtvqc" path="res://sound/pixel_bay/8-bit-explosion-95847.mp3" id="2_2855y"]
+
+[resource]
+script = ExtResource("1_ev6r4")
+sound_stream = ExtResource("2_2855y")
+max_distance = 2000.0
+metadata/_custom_type_script = "uid://bs74kgdt0mnri"

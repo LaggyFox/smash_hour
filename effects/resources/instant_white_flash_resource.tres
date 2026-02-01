@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="InstantFlashResource" format=3 uid="uid://d2l6tiym2yl02"]
+
+[ext_resource type="Script" uid="uid://bqxkwsxy5br4u" path="res://effects/instant_flash_resource.gd" id="1_qmn5a"]
+
+[resource]
+script = ExtResource("1_qmn5a")
+metadata/_custom_type_script = "uid://dam7wvw372xsc"

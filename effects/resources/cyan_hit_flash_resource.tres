@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="TweenFlashResource" format=3 uid="uid://d0q7d1obpem1h"]
+
+[ext_resource type="Script" uid="uid://cxpjnybcsmcbe" path="res://effects/tween_flash_resource.gd" id="1_7c3g5"]
+
+[sub_resource type="Gradient" id="Gradient_b2j0d"]
+offsets = PackedFloat32Array(0.24382208, 0.738056, 0.997696, 1)
+colors = PackedColorArray(0.42745098, 0.91764706, 0.8392157, 1, 0.2, 0.53333336, 0.87058824, 1, 0.92549, 0.152941, 0.247059, 0, 1, 1, 1, 0)
+
+[resource]
+script = ExtResource("1_7c3g5")
+tween_duration = 1.0
+color_gradient = SubResource("Gradient_b2j0d")

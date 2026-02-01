@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BackgroundMusicResource" format=3 uid="uid://dpn11s0ketuq3"]
+
+[ext_resource type="Script" uid="uid://dwpg4xqgepdyo" path="res://music/background_music_resource.gd" id="1_4knei"]
+[ext_resource type="AudioStream" uid="uid://3hkp0qe7yk8w" path="res://music/soundtracks/Vintage Knight 80 no afterglow.wav" id="2_lp3ka"]
+
+[resource]
+script = ExtResource("1_4knei")
+song = ExtResource("2_lp3ka")
+metadata/_custom_type_script = "uid://dwpg4xqgepdyo"
